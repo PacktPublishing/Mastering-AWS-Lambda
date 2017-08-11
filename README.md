@@ -15,12 +15,9 @@ Chapter 4 is zipped as it contains too many files
 The code will look like the following:
 ```
 myLambda.handler(event, context, function (err, value) {
-         retError = err ;
-
-   retValue = value ;
-  
-   done();
-  
+  retError = err ;
+  retValue = value ;
+  done();
 });
 ```
 
