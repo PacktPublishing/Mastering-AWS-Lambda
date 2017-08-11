@@ -1,0 +1,21 @@
+{
+  "messageVersion": "1.0",
+  "invocationSource": "FulfillmentCodeHook",
+  "userId": "user-1",
+  "sessionAttributes": {},
+  "bot": {
+    "name": "GetMyCoffeeChatBot",
+    "alias": "$LATEST",
+    "version": "$LATEST"
+  },
+  "outputDialogMode": "Text",
+  "currentIntent": {
+    "name": "GetMyCoffee",
+    "slots": {
+      "type": "Chai",
+      "size": "small",
+      "strength": "single"
+    },
+    "confirmationStatus": "None"
+  }
+}

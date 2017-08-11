@@ -1,0 +1,98 @@
+{
+  "Comment": "An example of the Amazon States Language using an AWS Lambda Functions",
+  "StartAt": "FetchAndCheck",
+  "States": {
+    "FetchAndCheck": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:us-east-1:12345678910:function:fetchandCheckLambda",
+      "Next": "ChoiceStateX",
+      "Catch": [
+            {
+               "ErrorEquals": ["InvalidInputError", "InvalidOperandError"],
+               "Next": "FailState"
+            }
+         ]
+    },
+    "ChoiceStateX": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.op",
+          "StringEquals": "add",
+          "Next": "Addition"
+        },
+        {
+          "Variable": "$.op",
+          "StringEquals": "sub",
+          "Next": "Subtraction"
+        },
+        {
+          "Variable": "$.op",
+          "StringEquals": "mul",
+          "Next": "Multiplication"
+        },
+        {
+          "Variable": "$.op",
+          "StringEquals": "div",
+          "Next": "Division"
+        }
+      ],
+      "Default": "DefaultState"
+    },
+
+    "Addition": {
+      "Type" : "Task",
+      "Resource": "arn:aws:lambda:us-east-1:12345678910:function:additionLambda",
+      "Next": "InsertInDB"
+    },
+
+    "Subtraction": {
+      "Type" : "Task",
+      "Resource": "arn:aws:lambda:us-east-1:12345678910:function:subtractionLambda",
+      "Next": "InsertInDB"
+    },
+
+    "Multiplication": {
+      "Type" : "Task",
+      "Resource": "arn:aws:lambda:us-east-1:12345678910:function:multiplication",
+      "Next": "InsertInDB"
+    },
+
+    "Division": {
+      "Type" : "Task",
+      "Resource": "arn:aws:lambda:us-east-1:12345678910:function:divisionLambda",
+      "Next": "InsertInDB",
+      "Catch": [
+            {
+               "ErrorEquals": ["ZeroDivisorError"],
+               "Next": "FailState"
+            }
+         ]
+    },
+
+    "DefaultState": {
+      "Type": "Pass",
+      "Next": "FailState"
+    },
+
+    "InsertInDB": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:us-east-1:12345678910:function:insertInDBLambda",
+      "Next": "SuccessState",
+      "Catch": [
+            {
+               "ErrorEquals": ["States.ALL"],
+               "Next": "FailState"
+            }
+         ]
+    },
+
+    "FailState": {
+      "Type": "Fail"
+    },
+
+    "SuccessState": {
+      "Type": "Succeed"
+    }
+  }
+}

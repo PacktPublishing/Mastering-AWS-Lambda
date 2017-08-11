@@ -1,0 +1,13 @@
+{
+  "description": "Node.js lambda function to show lambda invocation from a custom application",
+  "role": "arn:aws:iam::<account-id>:role/myWeatherLambdaRole",
+  "handler": "index.handler",
+  "environment": {
+        "snsTopicARN" : "arn:aws:sns:us-east-1:<account-id>:myWeatherSNS",
+        "kmsEncryptedAPIKey" : "<API key>",
+        "language" : "en",
+        "units" : "metric"
+  }
+}
+
+

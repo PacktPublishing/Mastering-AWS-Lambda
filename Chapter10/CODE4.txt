@@ -1,0 +1,16 @@
+{
+   "coreThing": {
+       "caPath": "rootca.pem",
+       "certPath": "<your_CRT_Filename>",
+       "keyPath": "<your_Private_Key_Filename>",
+       "thingArn": "<your_Device_ARN>",
+       "iotHost": "<IoT_Host_Prefix>.iot.[AWS_REGION_HERE].amazonaws.com",
+       "ggHost": "greengrass.iot.[AWS_REGION_HERE].amazonaws.com",
+       "keepAlive": 600
+   },
+   "runtime": {
+       "cgroup": {
+           "useSystemd": "yes"
+       }
+   }
+} 

@@ -1,0 +1,15 @@
+{
+  "name": "gitawsintegration",
+  "version": "1.0.0",
+  "description": "Git integration with AWS SNS Service",
+  "main": "index.js",
+  "dependencies": {
+    "request": "^2.81.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Udita Gupta",
+  "license": "ISC"
+}
