@@ -29,6 +29,3 @@ myLambda.handler(event, context, function (err, value) {
 * [Learning AWS Lambda [Video]](https://www.packtpub.com/virtualization-and-cloud/learning-aws-lambda-video?utm_source=github&utm_medium=repository&utm_campaign=9781787289222)
 
 * [AWS Administration Cookbook](https://www.packtpub.com/virtualization-and-cloud/aws-administration-cookbook?utm_source=github&utm_medium=repository&utm_campaign=9781787127630)
-
-### Suggestions and Feedback
-[Click here](https://docs.google.com/forms/d/e/1FAIpQLSe5qwunkGf6PUvzPirPDtuy1Du5Rlzew23UBp2S-P3wB-GcwQ/viewform) if you have any feedback or suggestions.
